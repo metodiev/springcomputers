@@ -7,7 +7,7 @@ class ArtefactService {
     getArtefacts(){
        return axios.get(ARTEFACTS_REAST_API);
     }
-    //The beauty and the best change
+   
 }
 
 export default new ArtefactService();
