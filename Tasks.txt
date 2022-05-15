@@ -1,0 +1,21 @@
+1. Install postgre DB 
+2. Create DB architecture  - Jorkata
+3. Create Java API which is going to comunicate with react - Monkata
+5. Spring Security Login (DB, Coockie, LDAP, SSL) - Jorkata
+6. Sessions - User and Admin Sessions, Cookies - Monkata
+7. Add react pages - menus, filters, db response, (refactor database performance) - Monkata, Jorkata
+7.1 Spring, React - Paging - Monkata Jorkata
+8. Mail client authentication, Mail reset password, mail feed client with site news - Monkata, Jorkata
+9. Billing - black friday, site birthday adjustments - Monkata
+10. Admin Panel - Admin can view users accounts, user product history, edit users bag, edit user order... - Jorkata
+11. Billing - reports - Customer billing reports - csv, pdf - Jorkata
+12. Billing - Admin - users reports, articles reports, billing reports - excel, pdf, csv - Monkata
+13. Repair technical issues - user login, admins, create reports - pdf, progress bar
+14. Site Chat (Bot and Admin)- Jorkata
+15. Computer components configurator - https://pcpartpicker.com/builds/#G=4 - Monkata
+16. Picture engine - compress and uncompress pictures on spring computer site - Monkata, Jorkata
+17. Performance Tests (performance of the product) - Monkata, Jorkata
+18. Integration Tests (Functionality of the whole product) - Monkata, Jorkata
+19. jUnit tests - Monkata, Jorkata
+20. Selenium tests (to test the front end part) - Monkata, Jorkata
+21. Search Engine, how to search and visualiase different product - optimase engine - Jorkata, Monkata

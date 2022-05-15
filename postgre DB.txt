@@ -1,0 +1,29 @@
+-- Database: springcomputersdb
+
+-- DROP DATABASE IF EXISTS springcomputersdb;
+
+CREATE DATABASE springcomputersdb
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+COMMENT ON DATABASE springcomputersdb
+    IS 'spring boot project database springcomputersdb';
+
+
+DROP TABLE IF EXISTS artefacts
+CREATE TABLE artefacts(id serial PRIMARY KEY, name VARCHAR(255), price DOUBLE PRECISION);
+
+
+INSERT INTO artefacts(name, price) VALUES('brush', 12.50);
+INSERT INTO artefacts(name, price) VALUES('ram', 100.00);
+INSERT INTO artefacts(name, price) VALUES('processor', 1234.50);
+INSERT INTO artefacts(name, price) VALUES('Monitor', 600.00);
+INSERT INTO artefacts(name, price) VALUES('Laptop', 1500.00);
+INSERT INTO artefacts(name, price) VALUES('Keyboard', 85.00);
+INSERT INTO artefacts(name, price) VALUES('Mouse', 46.00);
+INSERT INTO artefacts(name, price) VALUES('Desk', 500.00);
