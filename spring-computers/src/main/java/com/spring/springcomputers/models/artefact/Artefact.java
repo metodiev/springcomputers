@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+// cool
 @Entity
 @Table(name = "artefacts")
 public class Artefact {
