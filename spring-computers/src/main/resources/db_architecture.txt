@@ -3,9 +3,9 @@ tables:
 users, log_table, articles, pictures_table, articles_description, user_orders
 article_category, promotions, user_basket
 
-Triggres: user_login_tr, user_buy_tr,
-Functions:
-Procedures: client_buy_product, send_email,
+Triggres: user_login_tr, user_buy_tr, 
+Functions: 
+Procedures: client_buy_product, send_email, 
 */
 
 CREATE TABLE users (
@@ -25,7 +25,8 @@ user_id INT NOT NULL,
 user_search_articles CHAR(100)  NOT NULL,
 user_spend_time_online  INT NOT NULL,
 user_time_stamp_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-user_time_stamp_log_out TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+user_time_stamp_log_out TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+primary KEY (id)
 );
 
 CREATE TABLE pictures_table (
@@ -33,30 +34,37 @@ id mediumint not null AUTO_INCREMENT,
 picture_name char(100) NOT NULL,
 picture_size char(100) NOT NULL,
 article_id int NOT NULL,
-img LONGBLOB NOT NULL);
+img LONGBLOB NOT NULL,
+primary KEY (id));
+
 
 CREATE TABLE articles_description (
 id mediumint not null auto_increment,
 picture_id int NOT NULL,
-article_description char(100) NOT NULL);
+article_description char(100) NOT NULL,
+primary KEY (id)
+);
 
 CREATE TABLE user_orders (
 id mediumint not null auto_increment,
 user_order char(100) NOT NULL,
 user_id int NOT NULL,
-order_description char(1000)
+order_description text(5000),
+primary KEY (id)
 );
 
 create table article_category (
 id mediumint not null auto_increment,
 article_id int NOT NULL,
-article_category char(100) NOT NULL
+article_category char(100) NOT NULL,
+primary KEY (id)
 );
 
 CREATE TABLE promotions (
 id mediumint not null auto_increment,
 article_id int NOT NULL,
-article_categoryID INT NOT NULL
+article_categoryID INT NOT NULL,
+primary KEY (id)
 );
 
 
@@ -64,5 +72,13 @@ CREATE TABLE user_basket (
 id mediumint not null auto_increment,
 user_id int not null,
 number_articles int not null,
-articles char(100) not null
+articles char(100) not null,
+primary KEY (id)
 );
+
+delimiter //
+CREATE TRIGGER user_login_tr BEFORE INSERT
+ON log_table
+FOR EACH ROW
+INSERT INTO log_table VALUES (1, 'user_search_articles', 'user_spend_time_online', '20150313', '20150313' );
+delimiter ;
