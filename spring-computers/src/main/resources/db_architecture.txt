@@ -1,0 +1,68 @@
+/*--Create DB Architecture
+tables:
+users, log_table, articles, pictures_table, articles_description, user_orders
+article_category, promotions, user_basket
+
+Triggres: user_login_tr, user_buy_tr,
+Functions:
+Procedures: client_buy_product, send_email,
+*/
+
+CREATE TABLE users (
+id MEDIUMINT NOT NULL AUTO_INCREMENT,
+first_name CHAR(100) NOT NULL,
+last_name CHAR(100) NOT NULL,
+email CHAR(100)  NOT NULL,
+address CHAR(100)  NOT NULL,
+phone_number CHAR(100)  NOT NULL,
+password_str CHAR(100)  NOT NULL,
+primary KEY (id)
+);
+
+CREATE TABLE log_table (
+id MEDIUMINT NOT NULL AUTO_INCREMENT,
+user_id INT NOT NULL,
+user_search_articles CHAR(100)  NOT NULL,
+user_spend_time_online  INT NOT NULL,
+user_time_stamp_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+user_time_stamp_log_out TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE pictures_table (
+id mediumint not null AUTO_INCREMENT,
+picture_name char(100) NOT NULL,
+picture_size char(100) NOT NULL,
+article_id int NOT NULL,
+img LONGBLOB NOT NULL);
+
+CREATE TABLE articles_description (
+id mediumint not null auto_increment,
+picture_id int NOT NULL,
+article_description char(100) NOT NULL);
+
+CREATE TABLE user_orders (
+id mediumint not null auto_increment,
+user_order char(100) NOT NULL,
+user_id int NOT NULL,
+order_description char(1000)
+);
+
+create table article_category (
+id mediumint not null auto_increment,
+article_id int NOT NULL,
+article_category char(100) NOT NULL
+);
+
+CREATE TABLE promotions (
+id mediumint not null auto_increment,
+article_id int NOT NULL,
+article_categoryID INT NOT NULL
+);
+
+
+CREATE TABLE user_basket (
+id mediumint not null auto_increment,
+user_id int not null,
+number_articles int not null,
+articles char(100) not null
+);
