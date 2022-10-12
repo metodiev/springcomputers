@@ -82,3 +82,28 @@ ON log_table
 FOR EACH ROW
 INSERT INTO log_table VALUES (1, 'user_search_articles', 'user_spend_time_online', '20150313', '20150313' );
 delimiter ;
+
+
+
+/*insert into users*/
+insert into users values (default ,'Pesho', 'Peshov', 'mail@pesho.com', 'address_pesho', '0881001', 'password');
+insert into users values (default ,'Ivan', 'Ivanov', 'mail@ivo_.com', 'address_pesho', '08810011', 'password');
+insert into log_table values (default, 2, 'monitor', 220,  now(), now());
+
+
+select * from log_table;
+select first_name, user_search_articles, user_spend_time_online from log_table INNER JOIN users 
+ON users.id = log_table.id;
+
+select * from users RIGHT JOIN log_table on users.id = log_table.user_id;
+select * from users LEFT JOIN log_table on users.id = log_table.user_id;
+select * from users CROSS JOIN log_table ;
+
+select first_name, last_name from users
+LEFT JOIN log_table
+ON log_table.user_id = users.id
+union
+select user_search_articles, user_id from log_table RIGHT JOIN users
+ON users.id = log_table.user_id;
+
+CREATE VIEW userdata AS SELECT first_name, last_name, phone_number FROM users ;
